@@ -1,0 +1,55 @@
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  background-color: grey;
+}
+
+header {
+  background: black;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+}
+
+header nav a {
+  color: white;
+  margin: 0 15px;
+  text-decoration: none;
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+  overflow: hidden;
+  padding: 20px;
+}
+
+h2 {
+  color: black;
+}
+
+.project {
+  background: rgb(82, 72, 72);
+  margin: 20px 0;
+  padding: 10px;
+  border-left: 5px solid gray;
+}
+
+footer {
+  text-align: center;
+  background: #333;
+  color: white;
+  padding: 10px 0;
+}
+
+footer a {
+  color: grey;
+  text-decoration: none;
+}

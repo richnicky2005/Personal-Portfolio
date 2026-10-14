@@ -1,326 +1,425 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Richmond Okwuosa</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
-    />
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      }
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Richmond Okwuosa | Software Developer & Computer Science Student</title>
+<meta name="description" content="Richmond Okwuosa is a Carleton University computer science student with internship experience in fraud analytics, full-stack development, and Rust systems programming." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --bg: #eef1f4;
+  --surface: #ffffff;
+  --ink: #12222f;
+  --muted: #4d5f6d;
+  --line: #cdd6de;
+  --accent: #0a6c86;
+  --accent-ink: #ffffff;
+  --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body: "Hanken Grotesk", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0e1a24;
+    --surface: #152431;
+    --ink: #e8eef3;
+    --muted: #9db0be;
+    --line: #2a3d4d;
+    --accent: #5cc3dd;
+    --accent-ink: #0e1a24;
+  }
+}
 
-      body {
-        background-color: #f5f5f5;
-        color: #333;
-        line-height: 1.6;
-      }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 4.5rem; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
 
-      nav {
-        background: #333;
-        padding: 1rem;
-        position: fixed;
-        width: 100%;
-        z-index: 1000;
-      }
+/* Navigation */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+.nav-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0.9rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+.nav-name { font-family: var(--display); font-weight: 700; text-decoration: none; }
+nav ul { display: flex; gap: 1.5rem; list-style: none; }
+nav ul a { text-decoration: none; color: var(--muted); font-weight: 500; }
+nav ul a:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 6px; }
 
-      nav ul {
-        display: flex;
-        justify-content: flex-end;
-        list-style: none;
-        max-width: 1200px;
-        margin: 0 auto;
-      }
+main, footer .inner { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+section { padding: 4.5rem 0 1rem; }
 
-      nav ul li a {
-        color: #fff;
-        text-decoration: none;
-        padding: 0.5rem 1rem;
-        margin: 0 0.5rem;
-        transition: color 0.3s;
-      }
+h2 {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  line-height: 1.15;
+  margin-bottom: 2.5rem;
+}
 
-      nav ul li a:hover {
-        color: #bbb;
-      }
+/* Hero */
+#hero {
+  padding: 5rem 0 3rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 3rem;
+  align-items: end;
+}
+.hero-text h1 {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(3rem, 9vw, 6.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.75rem;
+}
+.hero-text .lede {
+  font-size: 1.25rem;
+  max-width: 34em;
+  color: var(--muted);
+  margin-bottom: 2rem;
+}
+.hero-text .lede strong { color: var(--ink); font-weight: 600; }
+.actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.4rem;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  border: 2px solid var(--ink);
+}
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.btn.primary:hover { filter: brightness(1.1); }
+.btn.secondary:hover { background: var(--ink); color: var(--bg); }
+.profile-image {
+  width: 220px;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid var(--line);
+}
 
-      section {
-        padding: 5rem 2rem;
-        max-width: 1200px;
-        margin: 0 auto;
-      }
+/* Education strip */
+.edu {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 1.25rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 2.5rem;
+  color: var(--muted);
+  font-size: 1rem;
+}
+.edu b { color: var(--ink); font-weight: 600; }
 
-      #hero {
-        height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        background: linear-gradient(45deg, #2c2c2c, #4a4a4a);
-        color: white;
-      }
+/* Experience timeline */
+.timeline { position: relative; list-style: none; }
+.job {
+  display: grid;
+  grid-template-columns: 11rem 1fr;
+  gap: 0 2.5rem;
+  padding-bottom: 3rem;
+  position: relative;
+}
+.job::before {
+  content: "";
+  position: absolute;
+  left: 11rem;
+  margin-left: 1.05rem;
+  top: 0.55rem;
+  bottom: -0.55rem;
+  width: 2px;
+  background: var(--line);
+}
+.job:last-child::before { display: none; }
+.job::after {
+  content: "";
+  position: absolute;
+  left: 11rem;
+  margin-left: 0.7rem;
+  top: 0.45rem;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 4px var(--bg);
+}
+.job-when { color: var(--muted); font-weight: 500; padding-top: 0.15rem; }
+.job-body { padding-left: 2.25rem; }
+.job-body h3 {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 1.4rem;
+  line-height: 1.25;
+}
+.job-org { color: var(--muted); margin-bottom: 0.9rem; }
+.job-body ul { padding-left: 1.1rem; max-width: 46em; }
+.job-body li { margin-bottom: 0.5rem; }
+.tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1rem; list-style: none; }
+.tags li {
+  font-size: 0.875rem;
+  padding: 0.15rem 0.65rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--muted);
+}
 
-      .profile-image {
-        width: 200px;
-        height: 200px;
-        border-radius: 50%;
-        margin-bottom: 2rem;
-        
-        object-fit: cover;
-      }
+/* Projects */
+.projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+.project {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.project img { width: 100%; height: 190px; object-fit: cover; border-bottom: 1px solid var(--line); }
+.project-body { padding: 1.5rem; display: flex; flex-direction: column; flex: 1; }
+.project h3 { font-family: var(--display); font-weight: 700; font-size: 1.3rem; line-height: 1.25; }
+.project .when { color: var(--muted); font-size: 0.95rem; margin-bottom: 0.9rem; }
+.project ul { padding-left: 1.1rem; margin-bottom: 1rem; }
+.project li { margin-bottom: 0.5rem; font-size: 1rem; }
+.project .tags { margin-top: auto; }
 
-      .hero-content h1 {
-        font-size: 3.5rem;
-        margin-bottom: 1rem;
-      }
+/* Skills */
+.skills { display: grid; grid-template-columns: 12rem 1fr; border-top: 1px solid var(--line); }
+.skills dt, .skills dd { padding: 1rem 0; border-bottom: 1px solid var(--line); }
+.skills dt { font-family: var(--display); font-weight: 700; }
+.skills dd { color: var(--muted); }
 
-      .hero-content p {
-        font-size: 1.5rem;
-        color: #ddd;
-      }
+/* Contact */
+#contact p { max-width: 36em; color: var(--muted); margin-bottom: 1.75rem; font-size: 1.15rem; }
 
-      .section-title {
-        font-size: 2.5rem;
-        margin-bottom: 3rem;
-        text-align: center;
-        color: #333;
-      }
+footer { margin-top: 5rem; border-top: 1px solid var(--line); padding: 2rem 0; color: var(--muted); font-size: 0.95rem; }
 
-      .projects-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-      }
+/* One page-load reveal on the hero only */
+@media (prefers-reduced-motion: no-preference) {
+  .hero-text, .profile-image { animation: rise 0.7s ease-out both; }
+  .profile-image { animation-delay: 0.12s; }
+  @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+}
 
-      .project-card {
-        background: white;
-        border-radius: 10px;
-        overflow: hidden;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s;
-      }
+@media (max-width: 760px) {
+  #hero { grid-template-columns: 1fr; gap: 2rem; padding-top: 3rem; }
+  .profile-image { order: -1; width: 140px; height: 168px; }
+  nav ul { gap: 1rem; }
+  .nav-name { display: none; }
+  .nav-inner { justify-content: center; }
+  .job { grid-template-columns: 1fr; padding-left: 2rem; }
+  .job::before { left: 0; margin-left: 5px; }
+  .job::after { left: 0; margin-left: 0; }
+  .job-body { padding-left: 0; }
+  .job-when { margin-bottom: 0.25rem; }
+  .skills { grid-template-columns: 1fr; }
+  .skills dt { border-bottom: none; padding-bottom: 0; }
+  .skills dd { padding-top: 0.25rem; }
+}
+</style>
+</head>
+<body>
 
-      .project-card:hover {
-        transform: translateY(-5px);
-      }
+<nav aria-label="Main">
+  <div class="nav-inner">
+    <a class="nav-name" href="#top">Richmond Okwuosa</a>
+    <ul>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
 
-      .project-card img {
-        width: 100%;
-        height: 200px;
-        object-fit: cover;
-      }
-
-      .project-content {
-        padding: 1.5rem;
-      }
-
-      .project-content h3 {
-        margin-bottom: 1rem;
-        color: #333;
-      }
-
-      .skills-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-        gap: 2rem;
-        text-align: center;
-      }
-
-      .skill-card {
-        background: white;
-        padding: 2rem;
-        border-radius: 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      }
-
-      .skill-card i {
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
-        color: #4a4a4a;
-      }
-
-      .contact-form {
-        max-width: 600px;
-        margin: 0 auto;
-        background: white;
-        padding: 2rem;
-        border-radius: 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      }
-
-      .form-group {
-        margin-bottom: 1.5rem;
-      }
-
-      .form-group label {
-        display: block;
-        margin-bottom: 0.5rem;
-        color: #333;
-      }
-
-      .form-group input,
-      .form-group textarea {
-        width: 100%;
-        padding: 0.8rem;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        font-size: 1rem;
-      }
-
-      button {
-        background: #333;
-        color: white;
-        padding: 1rem 2rem;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background 0.3s;
-      }
-
-      button:hover {
-        background: #4a4a4a;
-      }
-
-      footer {
-        background: #333;
-        color: white;
-        text-align: center;
-        padding: 2rem;
-        margin-top: 4rem;
-      }
-
-      @media (max-width: 768px) {
-        .hero-content h1 {
-          font-size: 2.5rem;
-        }
-
-        .hero-content p {
-          font-size: 1.2rem;
-        }
-
-        nav ul {
-          justify-content: center;
-        }
-
-        .profile-image {
-          width: 250px;
-          height: 250px;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <nav>
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-
-    <section id="hero">
-      <div class="hero-content" data-aos="fade-up">
-        <img
-          src="./images/RichmondOkwuosa.png"
-          alt="Richmond Okwuosa"
-          class="profile-image"
-        />
-        <h1>Richmond Okwuosa</h1>
-        <p>Passionate Computer Science student looking for a job</p>
+<main id="top">
+  <header id="hero">
+    <div class="hero-text">
+      <h1>Richmond Okwuosa</h1>
+      <p class="lede">
+        Computer science student at Carleton University. I build full-stack software,
+        analyze data to catch fraud, and write systems code in Rust and C++.
+        <strong>Looking for my next co-op or internship.</strong>
+      </p>
+      <div class="actions">
+        <a class="btn primary" href="mailto:richmondokwuosa48@gmail.com">Email me</a>
+        <a class="btn secondary" href="#experience">See my experience</a>
       </div>
-    </section>
+    </div>
+    <img src="./images/RichmondOkwuosa.png" alt="Portrait of Richmond Okwuosa" class="profile-image" />
+  </header>
 
-    <section id="projects">
-      <h2 class="section-title" data-aos="fade-up">My Projects</h2>
-      <div class="projects-grid">
-        <div class="project-card" data-aos="fade-up">
-          <img
-            src="./images/SpotifyWrapped.png"
-            alt="Project 1"
-          />
-          <div class="project-content">
-            <h3>Shopify Wrapped Predictor</h3>
-            <p>
-              A full stack web app that uses the spotify API to predict user's
-              future spotify wrapped
-            </p>
-          </div>
-        </div>
-        <div class="project-card" data-aos="fade-up" data-aos-delay="100">
-          <img src="./images/Portofolio.png" alt="Project 2" />
-          <div class="project-content">
-            <h3>Portfolio Website</h3>
-            <p>Responsive portfolio website using HTML, CSS, and JavaScript</p>
-          </div>
-        </div>
-        <div class="project-card" data-aos="fade-up" data-aos-delay="200">
-          <img src="/api/placeholder/400/320" alt="Project 3" />
-          <div class="project-content">
-            <h3>SimplyHired Job Scraping</h3>
-            <p>Developed a job scraping application in Python to gather job listings from SimplyHired using web scraping
-                techniques with <b>python and BeautifulSoup.</b></p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <div class="edu">
+    <span><b>Bachelor of Computer Science</b>, Carleton University, Ottawa (2023 to 2028)</span>
+    <span>GPA 10.88/12 (3.80/4.0)</span>
+    <span>Dean's List 2024 and 2025</span>
+    <span>English (native), French (bilingual)</span>
+  </div>
 
-    <section id="skills">
-      <h2 class="section-title" data-aos="fade-up">Skills</h2>
-      <div class="skills-grid">
-        <div class="skill-card" data-aos="fade-up">
-          <h3>Frontend</h3>
-          <p>HTML, CSS, JavaScript, React, Python(Flask)</p>
-        </div>
-        <div class="skill-card" data-aos="fade-up" data-aos-delay="100">
-          <h3>Backend</h3>
-          <p>Deno, Java, Python, JavaScript, C, C++, SQL</p>
-        </div>
-        <div class="skill-card" data-aos="fade-up" data-aos-delay="200">
-          <h3>Tools</h3>
-          <p>
-            VS Code, Git and Verson Control, Visual Studio, PyCharm, IntelliJ,
-            Eclipse
-          </p>
-        </div>
-      </div>
-    </section>
+  <section id="experience">
+    <h2>Experience</h2>
+    <ol class="timeline">
 
-    <section id="contact">
-      <h2 class="section-title" data-aos="fade-up">Contact Me</h2>
-      <form class="contact-form" data-aos="fade-up">
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input type="text" id="name" required />
+      <li class="job">
+        <div class="job-when">May to Aug 2026<br />Gatineau, QC</div>
+        <div class="job-body">
+          <h3>Threat Detection Analyst</h3>
+          <p class="job-org">Government of Canada, Employment and Social Development Canada (ESDC)</p>
+          <ul>
+            <li>Analyzed large-scale government datasets with Python, SAS, and SQL to find anomalies for fraud and risk investigations that protect Canadian benefits.</li>
+            <li>Built Power BI and Azure Synapse dashboards to track risk indicators and share findings with technical and non-technical stakeholders.</li>
+            <li>Used Splunk to analyze system logs and support fraud and incident detection workflows.</li>
+          </ul>
+          <ul class="tags" aria-label="Technologies">
+            <li>Python</li><li>SAS</li><li>SQL</li><li>Power BI</li><li>Splunk</li><li>Azure Synapse</li>
+          </ul>
         </div>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" required />
-        </div>
-        <div class="form-group">
-          <label for="message">Message</label>
-          <textarea id="message" rows="5" required></textarea>
-        </div>
-        <button type="submit">Send Message</button>
-      </form>
-    </section>
+      </li>
 
-    <footer>
-      <p>&copy; 2024 Richmond Okwuosa. All rights reserved.</p>
-    </footer>
+      <li class="job">
+        <div class="job-when">Sept to Dec 2025<br />Charlottetown, PEI</div>
+        <div class="job-body">
+          <h3>Software Developer Intern</h3>
+          <p class="job-org">SpryPoint</p>
+          <ul>
+            <li>Built multiple full-stack features for enterprise utility platforms serving 10,000+ users, using Java, Node.js, and PostgreSQL.</li>
+            <li>Cut API response times by 35% across 15+ endpoints by optimizing backend services and PostgreSQL queries.</li>
+            <li>Cut build times by 20% through CI/CD improvements, and contributed to code reviews on GitHub and Jira.</li>
+            <li>Built Power BI dashboards to analyze millions of utility records and track key performance indicators.</li>
+          </ul>
+          <ul class="tags" aria-label="Technologies">
+            <li>Java</li><li>Node.js</li><li>PostgreSQL</li><li>Power BI</li><li>Git</li>
+          </ul>
+        </div>
+      </li>
 
-    <script>
-      AOS.init({
-        duration: 1000,
-        once: true,
-      });
-    </script>
-  </body>
+      <li class="job">
+        <div class="job-when">May to Aug 2025<br />Ottawa, ON</div>
+        <div class="job-body">
+          <h3>Software Developer Intern</h3>
+          <p class="job-org">Bedarra Corporation</p>
+          <ul>
+            <li>Developed systems in Rust compiled to WebAssembly (WASM) so they run portably across environments.</li>
+            <li>Built a multithreaded peer-to-peer file synchronization system for distributed devices using Iroh.</li>
+            <li>Debugged concurrency issues and optimized data synchronization workflows to make the system more reliable.</li>
+          </ul>
+          <ul class="tags" aria-label="Technologies">
+            <li>Rust</li><li>WebAssembly</li><li>P2P</li><li>Multithreading</li><li>Git</li>
+          </ul>
+        </div>
+      </li>
+
+    </ol>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects">
+
+      <article class="project">
+        <div class="project-body">
+          <h3>Multi-Agent AI Health & Nutrition Assistant</h3>
+          <p class="when">January 2026</p>
+          <ul>
+            <li>Multi-agent assistant built in Langflow that generates meals, optimizes workouts, and answers personalized fitness questions, cutting nutrition planning time by 60%.</li>
+            <li>Uses retrieval-augmented generation (RAG) with Astra DB to pull from 100+ user profiles for personalized recommendations.</li>
+            <li>LLM tool calling and calculator APIs automate calorie calculations across 500+ queries, shown in an interactive Streamlit dashboard.</li>
+          </ul>
+          <ul class="tags" aria-label="Technologies">
+            <li>Python</li><li>Langflow</li><li>Astra DB</li><li>Streamlit</li><li>RAG</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="project">
+        <img src="./images/SpotifyWrapped.png" alt="Screenshot of the Spotify Wrapped web app" />
+        <div class="project-body">
+          <h3>Spotify Wrapped Web App</h3>
+          <p class="when">January 2025</p>
+          <ul>
+            <li>Full-stack app with Flask, React, and OAuth2 sign-in. API caching cut data retrieval latency by 40% and the app supports 100+ concurrent users.</li>
+            <li>Interactive listening visualizations, plus Power BI for trend analysis and reporting.</li>
+            <li>Deployed on AWS using S3, CloudFront, and Elastic Beanstalk.</li>
+          </ul>
+          <ul class="tags" aria-label="Technologies">
+            <li>Flask</li><li>React</li><li>OAuth2</li><li>AWS</li><li>Power BI</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project-body">
+          <h3>Binary Trie Routing Table</h3>
+          <p class="when">C++, networking</p>
+          <ul>
+            <li>IP routing table built on a binary trie, supporting route insertion, deletion, and longest-prefix lookup.</li>
+            <li>Bit-level address traversal finds the most specific matching route in O(W) time, where W is the IP address width.</li>
+            <li>Tested with large sets of overlapping prefixes, and evaluated lookup performance, memory usage, and edge cases.</li>
+          </ul>
+          <ul class="tags" aria-label="Technologies">
+            <li>C++</li><li>Networking</li><li>Data structures</li><li>Algorithms</li>
+          </ul>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <dl class="skills">
+      <dt>Languages</dt>
+      <dd>Java, Python, JavaScript, TypeScript, HTML/CSS, C, C++, SQL, Dart, Rust</dd>
+      <dt>Frameworks and libraries</dt>
+      <dd>React, Node.js, Express.js, Flask, Flutter, Deno, PyTorch, pytest, JUnit</dd>
+      <dt>Data and analytics</dt>
+      <dd>Power BI, Azure Synapse, SAS, Splunk, PostgreSQL, Astra DB (vector), MATLAB, Microsoft Excel, data visualization</dd>
+      <dt>Tools and infrastructure</dt>
+      <dd>Linux, Git, Docker, Kubernetes, Jenkins, Jira, GDB, Valgrind, AWS (S3, CloudFront, Elastic Beanstalk)</dd>
+      <dt>AI and machine learning</dt>
+      <dd>Machine learning, retrieval-augmented generation (RAG), LLM tool calling, facial recognition systems, algorithm performance analysis</dd>
+      <dt>Coursework</dt>
+      <dd>DevOps, data structures, database management, object-oriented programming, TCP/IP, MVC, agile methodology, test automation, machine learning, artificial intelligence</dd>
+    </dl>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>I'm open to co-op and internship roles in software development, data, and security. The fastest way to reach me is email.</p>
+    <div class="actions">
+      <a class="btn primary" href="mailto:richmondokwuosa48@gmail.com">richmondokwuosa48@gmail.com</a>
+      <a class="btn secondary" href="https://www.linkedin.com/in/richmond" rel="noopener">LinkedIn</a>
+      <a class="btn secondary" href="https://github.com/richnicky2005" rel="noopener">GitHub</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="inner">
+    <p>&copy; 2026 Richmond Okwuosa</p>
+  </div>
+</footer>
+
+</body>
 </html>
